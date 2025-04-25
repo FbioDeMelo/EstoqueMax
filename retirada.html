@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirada - EstoqueMax</title>
+    <link rel="stylesheet" href="../static/retirada.css">
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("open");
+            document.getElementById("overlay").classList.toggle("active");
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").classList.remove("open");
+            document.getElementById("overlay").classList.remove("active");
+        }
+    </script>
+</head>
+<body>
+    <header class="navbar">
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    </header>
+
+    <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+    <aside id="sidebar" class="sidebar">
+        <div class="logo-container">
+            <a href="inicioadmin.html">
+                <img src="../static/images/Inserir_um_título__1_-removebg-preview.png" alt="Logo EstoqueMax" class="logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="cadastroproduct.html" onclick="closeSidebar()">Cadastro de Produtos</a></li>
+                <li><a href="cadastrocliente.html" onclick="closeSidebar()">Cadastro de Cliente</a></li>
+                <li><a href="retirada.html" onclick="closeSidebar()">Retiradas de Produtos</a></li>
+                <li><a href="#" onclick="closeSidebar()">Relatórios</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <section>
+            <h1>Retirar Produto</h1>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Pesquisar produto">
+            </div>
+
+            <div class="table-container">
+                <table id="product-table">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Preço (R$)</th>
+                            <th>Estoque</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-list">
+                        <!-- Lista de produtos dinâmica (JS removido) -->
+                    </tbody>
+                </table>
+            </div>
+
+            <button class="cart-btn">Ver Carrinho</button>
+        </section>
+
+        <section id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeSidebar()">&times;</span>
+                <h2>Carrinho</h2>
+                <div class="form-group">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" placeholder="Digite seu CPF" maxlength="11">
+                </div>
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" readonly>
+                </div>
+                <ul id="cart-list">
+                </ul>
+                <p id="total-price">Total: R$0.00</p>
+                <button class="finalize-btn">Finalizar Compra</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
